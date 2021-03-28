@@ -1,0 +1,28 @@
+.btn {
+    max-width: 110px;
+    width: 100%;
+    padding: 7px 10px;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+    text-transform: uppercase;
+    cursor: pointer;
+    color: #fff;
+    background-color: #1f1c2f;
+    font-weight: 400;
+    transition: background-color 200ms;
+
+    &:hover {
+        background-color: #39392c;
+    }
+
+    &:disabled {
+        background-color: #323232;
+        color: #646464;
+        cursor: default;
+    }
+
+    &:focus {
+        box-shadow: 0 0 1px 2px #3b4ef6;
+    }
+}

@@ -1,0 +1,16 @@
+.tag_input_block {
+    display: flex;
+    width: 100%;
+    padding: 5px;
+
+    .tag_input {
+        width: 100%;
+        margin-right: 6px;
+        color: #454545;
+        background: #a5a5a5;
+
+        &::placeholder {
+            color: #e7e3e3;
+        }
+    }
+}

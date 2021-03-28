@@ -1,0 +1,32 @@
+.area_block {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    .area_control {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 10px;
+
+        .note_area_btn {
+            margin: 0 10px;
+        }
+    }
+
+    .note_text {
+        display: flex;
+        color: #343333;
+        font-size: 18px;
+        font-weight: 500;
+        overflow-wrap: anywhere;
+        min-height: 100px;
+        width: 100%;
+    }
+
+
+    .editable_block {
+        display: flex;
+    }
+}
+
+

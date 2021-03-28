@@ -1,0 +1,12 @@
+.text_area {
+    width: 99%;
+    border: 1px solid #343333;
+    color: #454545;
+    border-radius: 2px;
+    min-height: 100px;
+    outline: none;
+
+    &:focus {
+        box-shadow: 0 0 2px 5px #f6477f;
+    }
+}

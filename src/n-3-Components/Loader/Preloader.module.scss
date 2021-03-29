@@ -13,7 +13,7 @@
 .loader,
 .loader:before,
 .loader:after {
-    background: #d90d0d;
+    background: #dd3636;
     -webkit-animation: load1 1s infinite ease-in-out;
     animation: load1 1s infinite ease-in-out;
     width: 1em;
@@ -82,9 +82,10 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        position: sticky;
-        top: 50px;
-        left: 0;
+        position: fixed;
+        top: 50%;
+        left: 50%;
         margin: 0 auto;
     }
 }
+

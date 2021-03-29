@@ -13,7 +13,7 @@ You can also add a tag without including the edit mode.<br/>
 You can launch applications using the `dev` command in npm scripts or command `yarn start dev`
 Words that match the tags will be highlighted in the note text input field.
   
-Heroku APP [DEMO]()
+Heroku APP [DEMO](https://notes-react07-app.herokuapp.com/)
   
 Application: 
 - [![React](https://img.shields.io/badge/-REACT-1e1d1f?style-for=the-badge&logo=react)](https://ru.reactjs.org/)

@@ -1,6 +1,6 @@
-#Notes
+Notes
 
-###React app with Redux
+React app with Redux
 
 ___
 

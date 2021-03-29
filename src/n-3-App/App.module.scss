@@ -17,7 +17,7 @@
         letter-spacing: 5px;
         padding: 10px;
         color: white;
-        margin: 0;
+        margin: 150px 0 0 0;
     }
 
     .form_wrapper {
@@ -36,6 +36,10 @@
 @media screen and(max-width: 742px) {
     .app {
         padding: 20px 10px;
+
+        .app_name {
+            margin: 50px 0 0 0;
+        }
 
         .notes_wrapper {
             display: grid;

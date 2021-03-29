@@ -46,7 +46,7 @@ export const getTagsListTC = () => async (dispatch: ThunkDispatch<AppStateType, 
         dispatch(setTags(res.data));
         dispatch(setAppStatus('succeeded', null))
     } catch (error) {
-        console.log(error)
+        dispatch(setAppStatus('failed', 'Some error occurred'))
     }
 }
 
@@ -62,7 +62,7 @@ export const addNewTagTC = (tagText: string, noteId: string) => async (dispatch:
         dispatch(addTag(newTagObj));
         dispatch(setAppStatus('succeeded', null))
     } catch (error) {
-        console.log(error)
+        dispatch(setAppStatus('failed', 'Some error occurred'))
     }
 }
 
@@ -73,7 +73,7 @@ export const deleteTagTC = (tagId: string) => async (dispatch: ThunkDispatch<App
         await dispatch(removeTag(tagId));
         dispatch(setAppStatus('succeeded', null))
     } catch (error) {
-        console.log(error)
+        dispatch(setAppStatus('failed', 'Some error occurred'))
     }
 }
 

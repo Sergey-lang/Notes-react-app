@@ -1,15 +1,17 @@
 import React, {ChangeEvent, useState} from 'react';
 import {Button} from '../Button/Button';
 import s from './AddNoteForm.module.scss';
-import {useSelector} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 import {selectorAppStatus} from '../../n-3-App/selectors';
 import {Input} from '../Input/Input';
+import {setAppStatus} from '../../n-2-Redux/app-reducer';
 
 type PropsType = {
     callback: (title: string) => void
 }
 
 export const AddNoteForm: React.FC<PropsType> = ({callback}) => {
+    const dispatch = useDispatch()
     const appStatus = useSelector(selectorAppStatus)
     const [noteText, setNoteText] = useState<string>('')
 
@@ -22,7 +24,7 @@ export const AddNoteForm: React.FC<PropsType> = ({callback}) => {
             callback(noteText)
             setNoteText('')
         } else {
-            alert('Title is required')
+            dispatch(setAppStatus('failed', 'Title is required'))
         }
     }
 

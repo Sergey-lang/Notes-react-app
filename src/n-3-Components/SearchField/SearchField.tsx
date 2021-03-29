@@ -5,6 +5,8 @@ import {getNotesListTC} from '../../n-2-Redux/notes-reducer';
 import s from './SearchField.module.scss'
 import {selectorAppStatus} from '../../n-3-App/selectors';
 import {Input} from '../Input/Input';
+import {addNewTagTC} from '../../n-2-Redux/tags-reducer';
+import {setAppStatus} from '../../n-2-Redux/app-reducer';
 
 type PropsType = {
     callback: (value: string) => void
@@ -20,7 +22,12 @@ export const SearchField: React.FC<PropsType> = ({callback}) => {
     }
 
     const onSendRequest = useCallback(() => {
-        callback(`#${value}`)
+        if (value.trim() !== '') {
+            callback(`#${value}`)
+            setValue('')
+        } else {
+            dispatch(setAppStatus('failed', 'Title is required'))
+        }
     },[value,callback])
 
     const showAll = useCallback(() => {

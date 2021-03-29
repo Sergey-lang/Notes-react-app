@@ -6,6 +6,7 @@ import {Button} from '../Button/Button';
 import s from './NoteArea.module.scss';
 import {selectorAppStatus} from '../../n-3-App/selectors';
 import {HighlightTextarea} from '../HighlightTextarea/HighlightTextarea';
+import {setAppStatus} from '../../n-2-Redux/app-reducer';
 
 type PropsType = {
     note: NoteType
@@ -25,8 +26,13 @@ export const NoteArea: React.FC<PropsType> = ({note, tags, editMode, setEditMode
     }
 
     const changeNote = async () => {
-        dispatch(updateNoteTC(note, areaText))
-        setEditMode(false)
+        if (areaText.trim() !== '') {
+            dispatch(updateNoteTC(note, areaText))
+            setEditMode(false)
+        } else {
+            const minLength = 1
+            dispatch(setAppStatus('failed', `Text must be longer than ${minLength} symbol`))
+        }
     }
 
     const hashTagsArray = areaText.match(/#[0-9A-Za-zА-Яа-яё]+/g);
@@ -51,11 +57,11 @@ export const NoteArea: React.FC<PropsType> = ({note, tags, editMode, setEditMode
                 !editMode
                     ? <div className={s.note_text}>{areaText}</div>
                     : <HighlightTextarea areaText={areaText}
-                                           className={s.editable_block}
-                                           onKeyPress={addTagOnKeyPress}
-                                           setAreaText={setAreaText}
-                                           tagsNameArray={tagsNameArray}
-                        />
+                                         className={s.editable_block}
+                                         onKeyPress={addTagOnKeyPress}
+                                         setAreaText={setAreaText}
+                                         tagsNameArray={tagsNameArray}
+                    />
             }
         </div>
     )

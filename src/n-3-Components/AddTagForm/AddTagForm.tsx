@@ -5,6 +5,7 @@ import {Button} from '../Button/Button';
 import s from './AddTagForm.module.scss';
 import {selectorAppStatus} from '../../n-3-App/selectors';
 import {Input} from '../Input/Input';
+import {setAppStatus} from '../../n-2-Redux/app-reducer';
 
 type PropsType = {
     noteId: string
@@ -24,7 +25,7 @@ export const AddTagForm: React.FC<PropsType> = React.memo(({noteId}) => {
             dispatch(addNewTagTC(tagText, noteId))
             setTagText('')
         } else {
-            alert('Title is required')
+            dispatch(setAppStatus('failed', 'Title is required'))
         }
     }, [tagText])
 

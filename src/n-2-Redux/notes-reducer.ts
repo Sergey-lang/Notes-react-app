@@ -71,7 +71,7 @@ export const getNotesListTC = () => async (dispatch: ThunkDispatch<AppStateType,
         );
         dispatch(setAppStatus('succeeded', null))
     } catch (error) {
-        console.log(error)
+        dispatch(setAppStatus('failed', 'Some error occurred'))
     }
 }
 
@@ -81,7 +81,7 @@ export const addNewNoteTC = (title: string) => async (dispatch: ThunkDispatch<Ap
         const newNoteObj: NoteType = {
             id: v1(),
             title: title,
-            noteText: 'Fake task...',
+            noteText: 'Add notes',
             created_date: new Date().getTime(),
             updated_date: new Date().getTime()
         }
@@ -89,7 +89,7 @@ export const addNewNoteTC = (title: string) => async (dispatch: ThunkDispatch<Ap
         dispatch(addNote(newNoteObj));
         dispatch(setAppStatus('succeeded', null))
     } catch (error) {
-        console.log(error)
+        dispatch(setAppStatus('failed', 'Some error occurred'))
     }
 }
 
@@ -100,7 +100,7 @@ export const removeNoteTC = (id: string) => async (dispatch: ThunkDispatch<AppSt
         dispatch(deleteNote(id));
         dispatch(setAppStatus('succeeded', null))
     } catch (error) {
-        console.log(error)
+        dispatch(setAppStatus('failed', 'Some error occurred'))
     }
 }
 
@@ -119,7 +119,7 @@ export const updateNoteTC = (note: NoteType, areaText: string) => async (dispatc
         dispatch(changeNote(updateNoteObj));
         dispatch(setAppStatus('succeeded', null))
     } catch (error) {
-        console.log(error)
+        dispatch(setAppStatus('failed', 'Some error occurred'))
     }
 }
 
